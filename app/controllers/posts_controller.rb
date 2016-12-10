@@ -15,6 +15,7 @@ class PostsController < ApplicationController
     @post = Post.new
     @post.title = params[:post][:title]
     @post.body = params[:post][:body]
+    @post.resolved = params[:post][:resolved]
     if @post.save
       flash[:notice] = "Post was saved."
       redirect_to @post
@@ -32,6 +33,7 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
     @post.title = params[:post][:title]
     @post.body = params[:post][:body]
+    @post.resolved = params[:post][:resolved]
 
     if @post.save
       flash[:notice] = "Post was updated."
