@@ -9,18 +9,31 @@
         </div>
       <% end %>
       <div class="media-body">
-        <h2 class="media-heading"><%= @user.name %></h2>
+        <h1 class="media-heading"><%= @user.name %></h1>
         <small>
-          <%= pluralize(@user.posts.count, 'post') %>
-          <%= pluralize(@user.comments.count, 'comment') %>
+          <%= pluralize(@user.posts.count, 'post') %> |
+          <%= pluralize(@user.comments.count, 'comment') %> |
+          <%= pluralize(@user.favorited_posts.count, 'favorite') %>
         </small>
       </div>
     </div>
   </div>
 <div>
-
-<h2>Posts</h2>
-<%= render @user.posts %>
-
-<h2>Comments</h2>
-<%= render @user.comments %>
+<div class="pull-left">
+  <% if no_posts %>
+    <h3><%= @user.name %> has not submitted any posts yet.</h3>
+  <% else %>
+    <h3>Posts</h3>
+    <%= render @user.posts %>
+  <% end %>
+<br>
+  <% if no_comments %>
+    <h3><%= @user.name %> has not submitted any comments yet.</h3>
+  <% else %>
+    <h3>Comments</h3>
+    <%= render @user.comments %>
+  <% end %>
+<br>
+  <h3>Favorites</h3>
+  <%= render @user.favorited_posts %>
+</div>
