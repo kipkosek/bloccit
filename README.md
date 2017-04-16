@@ -1,5 +1,4 @@
-== README
+# Bloccit
 
-## Bloccit: A Reddit replica to teach the fundamentals of web development and Rails.
+### A Reddit replica to teach the fundamentals of web development and Ruby on Rails.
 
-Made with my mentor at Bloc.
